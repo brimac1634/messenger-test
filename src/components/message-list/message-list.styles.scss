@@ -1,0 +1,44 @@
+.message-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    background-color: #e4e4e4;
+    padding: 5px 10px;
+
+    .message {
+        border-radius: 4px;
+        padding: 3px 8px;
+        margin: 5px 0;
+        max-width: 60%;
+
+        p {
+            margin: 3px 0;
+        }
+
+        span {
+            font-size: 8px;
+            margin-top: 8px;
+            display: block;
+        }
+
+        &.me {
+            margin-left: auto;
+            background-color: #ffffd2;
+
+            p {
+                text-align: right;
+            }
+
+            span {
+                text-align: right;
+                width: 100%;
+            }
+        }
+
+        &.recipient {
+            margin-right: auto;
+            background-color: #8293ff;
+        }
+    }
+}
