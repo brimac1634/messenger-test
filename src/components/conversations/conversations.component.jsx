@@ -33,6 +33,7 @@ const Conversations = ({ user, match, history }) => {
                             conversations &&
                             conversations.map((con, i) => {
                                 const recipient = con.users.filter(conUser => conUser._id !== user._id)[0];
+                                console.log(con)
                                 return (
                                     <button key={i} onClick={() => history.push(`${match.path}/${con._id}`)}>
                                         <span className='conversation'>{recipient.name}</span>

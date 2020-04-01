@@ -5,7 +5,7 @@ import Cookies from 'universal-cookie';
 import './messenger-input.styles.scss';
 
 const MessengerInput = ({ conversationId, otherProps }) => {
-    const [input, setInput] = useState(null);
+    const [input, setInput] = useState('');
 
     const submitInput = message => {
         const token = new Cookies().get('authToken')
@@ -21,7 +21,6 @@ const MessengerInput = ({ conversationId, otherProps }) => {
             }
         }).then(({ data}) => {
             setInput('');
-            console.log(data)
         }).catch(err => console.log(err))
     }
 
@@ -35,6 +34,9 @@ const MessengerInput = ({ conversationId, otherProps }) => {
                 onChange={e => {
                     setInput(e.target.value);
                 }} 
+                onKeyPress={e => {
+                    if (e.key === 'Enter') submitInput(input);
+                }}
             />
             <button className='button' onClick={() => submitInput(input)}>Send</button>
         </div>
