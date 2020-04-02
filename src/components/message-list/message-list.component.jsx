@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import './message-list.styles.scss';
 import { useEffect } from 'react';
 
-const MessageList = ({ messages, user }) => {
+const MessageList = ({ messages, user, totalMessages, loadMoreMessages }) => {
     const latestMessage = useRef(null);
     
     useEffect(() => {
@@ -13,6 +13,12 @@ const MessageList = ({ messages, user }) => {
     return ( 
         <div className='message-list'>
             <div className='list'>
+                {
+                    messages.length < totalMessages &&
+                    <div className='load-more'>
+                        <button onClick={loadMoreMessages}>load more</button>
+                    </div>
+                }
                 {
                     messages &&
                     messages.map((message, i) => {

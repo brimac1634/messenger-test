@@ -23,6 +23,7 @@ const Conversations = ({ user, match, history }) => {
             setConversations(data.conversations)
         }).catch(err => console.log(err))
     }, [])
+    
     return ( 
         <div className='conversations'>
             <Switch>
